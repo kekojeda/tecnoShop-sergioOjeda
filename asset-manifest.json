@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/tecnoShop/static/css/main.073c9b0a.css",
+    "main.js": "/tecnoShop/static/js/main.71384ccb.js",
+    "static/js/787.a0fa2424.chunk.js": "/tecnoShop/static/js/787.a0fa2424.chunk.js",
+    "static/media/logo.svg": "/tecnoShop/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/tecnoShop/index.html",
+    "main.073c9b0a.css.map": "/tecnoShop/static/css/main.073c9b0a.css.map",
+    "main.71384ccb.js.map": "/tecnoShop/static/js/main.71384ccb.js.map",
+    "787.a0fa2424.chunk.js.map": "/tecnoShop/static/js/787.a0fa2424.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.71384ccb.js"
+  ]
+}
