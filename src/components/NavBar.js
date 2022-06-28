@@ -1,4 +1,5 @@
 import React from 'react';
+import { CarWidget } from './CarWidget';
 
 
 function NavBar(){
@@ -34,7 +35,7 @@ function NavBar(){
         </ul>
         
       </div>
-      
+      <CarWidget />
       <button type="button" className="btn btn-outline-dark">Login</button>
 
     </div>
