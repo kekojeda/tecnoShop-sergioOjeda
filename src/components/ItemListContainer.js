@@ -1,4 +1,5 @@
 import React from 'react';
+import { ItemCount } from './ItemCount';
 
 function ItemListContainer({greeting}){
     return(
@@ -11,6 +12,8 @@ function ItemListContainer({greeting}){
                 <div class="card-body">
                     <h5 class="card-title">{greeting}</h5>
                     <p class="card-text">Texto ejemplo de tarjeta</p>
+                    <ItemCount stock={3} initial ={1} onAdd={(n) => alert(`Se agregaron ${n} productos en el carrito`)}/>
+                    
                     
                 </div>
               
