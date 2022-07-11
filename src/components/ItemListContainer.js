@@ -1,23 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ItemCount } from './ItemCount';
+import { ItemList } from './ItemList';
+import products from '../products.json'
 
 function ItemListContainer({greeting}){
+
+
+    const [list, setList] = useState([])
+
+  
+
+    const asyncMock = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(  setList(products) );
+        }, 2000);
+      });
+      
+ 
+
+
+
+
+   
     return(
         <>
+        
             <div className='card text-center'></div>
-            <div class="card text-center">
-                <div class="card-header">
+            <div className="card text-center">
+                <div className="card-header">
                     Item
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">{greeting}</h5>
-                    
-                    <ItemCount stock={5} initial ={1} onAdd={(n) => alert(`Se agregaron ${n} productos en el carrito`)}/>
-                    
-                    
+                <div className="card-body">
+                    <h5 className="card-title">{greeting}</h5>
+                    <ItemList items={list} />
+
+                    <ItemCount stock={5} initial={1} onAdd={(n) => alert(`Se agregaron ${n} productos en el carrito`)} />
+
+
+
                 </div>
-              
+
             </div>
+
+            
+
+           
+
+
+
+
         </>
         
     );
