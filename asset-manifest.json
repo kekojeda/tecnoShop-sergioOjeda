@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/tecnoShop-sergioOjeda/static/css/main.073c9b0a.css",
-    "main.js": "/tecnoShop-sergioOjeda/static/js/main.648c7660.js",
+    "main.js": "/tecnoShop-sergioOjeda/static/js/main.fd88a791.js",
     "static/js/787.a0fa2424.chunk.js": "/tecnoShop-sergioOjeda/static/js/787.a0fa2424.chunk.js",
     "static/media/logo.svg": "/tecnoShop-sergioOjeda/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/tecnoShop-sergioOjeda/index.html",
     "main.073c9b0a.css.map": "/tecnoShop-sergioOjeda/static/css/main.073c9b0a.css.map",
-    "main.648c7660.js.map": "/tecnoShop-sergioOjeda/static/js/main.648c7660.js.map",
+    "main.fd88a791.js.map": "/tecnoShop-sergioOjeda/static/js/main.fd88a791.js.map",
     "787.a0fa2424.chunk.js.map": "/tecnoShop-sergioOjeda/static/js/787.a0fa2424.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.648c7660.js"
+    "static/js/main.fd88a791.js"
   ]
 }
