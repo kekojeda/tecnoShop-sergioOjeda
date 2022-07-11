@@ -12,7 +12,7 @@ function ItemListContainer({greeting}){
                 <div class="card-body">
                     <h5 class="card-title">{greeting}</h5>
                     
-                    <ItemCount stock={3} initial ={1} onAdd={(n) => alert(`Se agregaron ${n} productos en el carrito`)}/>
+                    <ItemCount stock={5} initial ={1} onAdd={(n) => alert(`Se agregaron ${n} productos en el carrito`)}/>
                     
                     
                 </div>

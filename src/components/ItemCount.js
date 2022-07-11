@@ -11,7 +11,7 @@ function ItemCount({ stock, initial, onAdd}) {
     }
 
     function decrementar(){
-        setCount(valAnt => valAnt > 0 ? count - 1 : count)
+        setCount(valAnt => valAnt > 1 ? count - 1 : count)
     }
 
     return (
