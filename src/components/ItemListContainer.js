@@ -2,57 +2,63 @@ import React, { useState } from 'react';
 import { ItemCount } from './ItemCount';
 import { ItemList } from './ItemList';
 import products from '../products.json'
+import { ItemDetailContainer } from './ItemDetailContainer';
 
-function ItemListContainer({greeting}){
 
+function ItemListContainer({ greeting }) {
 
     const [list, setList] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
-  
-
-    const asyncMock = new Promise((resolve, reject) => {
+    const asyncMock = new Promise((resolve) => {
         setTimeout(() => {
-          resolve(  setList(products) );
+            resolve(products, setIsLoading(false));
+            
         }, 2000);
-      });
-      
- 
+    });
 
-
-
+    asyncMock.then((products) => setList(products))
 
    
-    return(
-        <>
-        
-            <div className='card text-center'></div>
-            <div className="card text-center">
-                <div className="card-header">
-                    Item
-                </div>
-                <div className="card-body">
-                    <h5 className="card-title">{greeting}</h5>
-                    <ItemList items={list} />
-
-                    <ItemCount stock={5} initial={1} onAdd={(n) => alert(`Se agregaron ${n} productos en el carrito`)} />
 
 
 
-                </div>
 
-            </div>
-
+    return (
+        <>  
             
 
-           
+            
+            <div className="container">
+                <h5 className="card-title">{greeting}</h5>
+                <div className="row">
+                    {
+                        isLoading ? (
+                            <div className="d-flex align-items-center">
+                                <h2><strong>No entres en pánico, estamos cargando los productos ....</strong></h2>
+                                <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                            </div>
+                        ) : (<>
+                            
+                            <ItemList items={list} />
+                          
+                            
+                            </>
+                            
+                            )
+                    }
 
+                   
 
+                    
 
+                    
+                    
+                </div>
+            </div>
 
         </>
-        
     );
-
 }
 
 export { ItemListContainer }

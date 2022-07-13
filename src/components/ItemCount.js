@@ -15,7 +15,7 @@ function ItemCount({ stock, initial, onAdd}) {
     }
 
     return (
-        <div>
+        <div className="position-absolute bottom-0 start-50 translate-middle-x">
           
             {/* El Boton no deja seguir decrementando si es menor a 0 */ }
             <button className="btn btn-outline-primary btn-sm" onClick={decrementar}>-</button>
