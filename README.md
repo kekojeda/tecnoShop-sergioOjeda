@@ -11,16 +11,18 @@ Este proyecto consiste en el desarrollo front-end de una tienda virtual, usando 
  *Un Navbar con los NavLinks (usando react-router-dom) apuntando a los componentes correspondientes*
  *----- En Desarrollo*
 ### CarWidget
- *En Desarrollo*
+ *Muestra, en el NavBar, un boton de carrito de compras*
 ### Item
  *Vista general de un item que se mostrara en ItemList*
  ### ItemList
- *Muestra todos los items del archivo Json de productos, haciedno un map*
+ *Muestra todos los items del archivo Json de productos, haciendo un map*
  ### ItemListContainer
- *En Desarrollo*
+ *Logica, Promesas, Hook de todo lo que necesitan los componenentes que se muestran en esta seccion*
  ### ItemDetail
- *En Desarrollo*
+ *Muestra el detalle de un item especifico, recibiendo por useParams el id del item seleccionado*
  ### ItemCount
- *En Desarrollo*
+ *Muestra la cantidad de items que se agregaran al carrito, con la opcion de incrementar o decrementar esa cantidad, recibe el stock, cantidad inicial y una funcion, que sera la encargada de agregar estos items al carritp*
   ### ItemDetailContainer
- *En Desarrollo*
+ *Logica, Promesas y Hook de todo lo que necesita el componente para mostrarse*
+ ### CategoriaContainer
+ *Filtra el Json de productos y muestra, dependiendo el id de categoria que reciba por useParams, los items que correspondan a esta categoria*

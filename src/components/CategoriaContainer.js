@@ -24,7 +24,7 @@ function CategoriaContainer({ greeting }) {
       .then((productCategoryId) => setList(productCategoryId))
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
-  }, [productCategoryId]);
+  }, [categoryId]);
 
   return (
     <>
@@ -35,7 +35,8 @@ function CategoriaContainer({ greeting }) {
             <div className="d-flex align-items-center">
               <h2>
                 <strong>
-                  No entres en pánico, estamos cargando los productos ....
+                  No entres en pánico, estamos cargando los productos de la
+                  categoria seleccionada ....
                 </strong>
               </h2>
               <div

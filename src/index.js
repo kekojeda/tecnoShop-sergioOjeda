@@ -13,9 +13,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="productos" element={<ItemListContainer greeting={ "ItemListContainer "} />} />
+          <Route path="productos" index element={<ItemListContainer greeting={ "ItemListContainer "} />} />
           <Route path="detalleProducto/:id" element={<ItemDetailContainer greeting={ "ItemDetailContainer "}/>} />
-          <Route path="categoria/:id" element={<CategoriaContainer greeting={ "CategoriaContainer "}/>} />
+          <Route path="productos/:id" element={<CategoriaContainer greeting={ "CategoriaContainer "}/>} />
           <Route path="*" element={<h3>Esta ruta no existe</h3>} />
         </Route>
       </Routes>

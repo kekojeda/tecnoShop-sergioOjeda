@@ -46,7 +46,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/categoria/1"
+                  to="/productos/mens-clothing"
                   className="nav-link"
                   activeClassName={"active"}
                   aria-current="page"
@@ -56,7 +56,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/categoria/2"
+                  to="/productos/jewelery"
                   className="nav-link"
                   activeClassName={"active"}
                   aria-current="page"
@@ -66,7 +66,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/categoria/3"
+                  to="/productos/electronics"
                   className="nav-link"
                   activeClassName={"active"}
                   aria-current="page"
@@ -76,7 +76,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/categoria/4"
+                  to="/productos/womens-clothing"
                   className="nav-link"
                   activeClassName={"active"}
                   aria-current="page"
