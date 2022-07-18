@@ -15,6 +15,7 @@ root.render(
           <Route path="productos" element={<ItemListContainer greeting={ "ItemListContainer "} />} />
           <Route path="detalleProductos" element={<ItemDetailContainer greeting={ "ItemDetailContainer "}/>} />
           <Route path="detalleProducto/:id" element={<ItemDetailContainer greeting={ "ItemDetailContainer "}/>} />
+          <Route path="categoria/:id" element={<ItemListContainer greeting={ "CategoriaContainer "}/>} />
           <Route path="*" element={<h3>Esta ruta no existe</h3>} />
         </Route>
       </Routes>

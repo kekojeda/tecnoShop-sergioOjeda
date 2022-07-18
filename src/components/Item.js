@@ -11,10 +11,13 @@ function Item({ id, title, description, price, image }) {
           <div className="card-body mx-auto">
             <p className="card-text">{description}</p>
             <p className="card-text mx-auto">${price}</p>
-            <Link to={"/detalleProducto/" + id} className="btn btn-primary" aria-current="page">
+            <Link
+              to={"/detalleProducto/" + id}
+              className="btn btn-primary"
+              aria-current="page"
+            >
               Ver detalle del producto
             </Link>
-
           </div>
         </div>
       </div>

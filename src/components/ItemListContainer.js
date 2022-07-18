@@ -6,6 +6,7 @@ function ItemListContainer({ greeting }) {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   const asyncMock = new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);

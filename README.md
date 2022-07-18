@@ -8,8 +8,19 @@ Este proyecto consiste en el desarrollo front-end de una tienda virtual, usando 
 ## Componentes
 
 ### NavBar
- *En Desarrollo*
+ *Un Navbar con los NavLinks (usando react-router-dom) apuntando a los componentes correspondientes*
+ *----- En Desarrollo*
 ### CarWidget
  *En Desarrollo*
-### ItemListContainer
+### Item
+ *Vista general de un item que se mostrara en ItemList*
+ ### ItemList
+ *Muestra todos los items del archivo Json de productos, haciedno un map*
+ ### ItemListContainer
+ *En Desarrollo*
+ ### ItemDetail
+ *En Desarrollo*
+ ### ItemCount
+ *En Desarrollo*
+  ### ItemDetailContainer
  *En Desarrollo*

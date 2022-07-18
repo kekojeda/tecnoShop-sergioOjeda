@@ -36,7 +36,6 @@ function ItemCount({ stock, initial, onAdd }) {
           className="btn btn-outline-primary btn-sm"
           onClick={() => {
             onAdd(count);
-            //count <= stock ? onAdd(count) : alert(`No hay suficiente Stock, solo puedes agregar ${stock} productos`)
           }}
         >
           Agregar al carrito
