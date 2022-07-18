@@ -7,14 +7,10 @@ function NavBar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-        <Link
-                  to="/"
-                  className="navbar-brand"
-                  aria-current="page"
-                >
-                  TecnoShop
-                </Link>
-          
+          <Link to="/" className="navbar-brand" aria-current="page">
+            TecnoShop
+          </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -88,7 +84,7 @@ function NavBar() {
                   Women's Clothing
                 </NavLink>
               </li>
-              
+
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   Contacto

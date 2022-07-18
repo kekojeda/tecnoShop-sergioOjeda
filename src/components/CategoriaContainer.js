@@ -9,8 +9,9 @@ function CategoriaContainer({ greeting }) {
 
   const categoryId = useParams();
 
-  const productCategoryId = products.filter((el) => el.categoryId == categoryId.id);
-
+  const productCategoryId = products.filter(
+    (el) => el.categoryId == categoryId.id
+  );
 
   const asyncMock = new Promise((resolve) => {
     setTimeout(() => {

@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import products from "../products.json";
 
 function ItemDetailContainer({ greeting }) {
-
   const [detail, setDetail] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
