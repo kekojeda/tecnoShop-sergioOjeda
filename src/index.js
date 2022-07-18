@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { ItemListContainer } from "./components/ItemListContainer";
+import { CategoriaContainer } from "./components/CategoriaContainer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,9 +14,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="productos" element={<ItemListContainer greeting={ "ItemListContainer "} />} />
-          <Route path="detalleProductos" element={<ItemDetailContainer greeting={ "ItemDetailContainer "}/>} />
           <Route path="detalleProducto/:id" element={<ItemDetailContainer greeting={ "ItemDetailContainer "}/>} />
-          <Route path="categoria/:id" element={<ItemListContainer greeting={ "CategoriaContainer "}/>} />
+          <Route path="categoria/:id" element={<CategoriaContainer greeting={ "CategoriaContainer "}/>} />
           <Route path="*" element={<h3>Esta ruta no existe</h3>} />
         </Route>
       </Routes>

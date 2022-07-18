@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <NavBar />
+      
       {/*
         <ItemDetailContainer greeting={ "ItemDetailContainer "}/>
       <ItemListContainer greeting={ "ItemListContainer "}/>

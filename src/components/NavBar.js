@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { CarWidget } from "./CarWidget";
 
 function NavBar() {
@@ -7,9 +7,14 @@ function NavBar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            TecnoShop
-          </a>
+        <Link
+                  to="/"
+                  className="navbar-brand"
+                  aria-current="page"
+                >
+                  TecnoShop
+                </Link>
+          
           <button
             className="navbar-toggler"
             type="button"
@@ -50,24 +55,40 @@ function NavBar() {
                   activeClassName={"active"}
                   aria-current="page"
                 >
+                  Men's Clothing
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/categoria/2"
+                  className="nav-link"
+                  activeClassName={"active"}
+                  aria-current="page"
+                >
                   Jewelery
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink
+                  to="/categoria/3"
+                  className="nav-link"
+                  activeClassName={"active"}
+                  aria-current="page"
+                >
                   Electronics
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Ofertas
-                </a>
+                <NavLink
+                  to="/categoria/4"
+                  className="nav-link"
+                  activeClassName={"active"}
+                  aria-current="page"
+                >
+                  Women's Clothing
+                </NavLink>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Devoluciones
-                </a>
-              </li>
+              
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   Contacto
