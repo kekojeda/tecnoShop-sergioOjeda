@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
 import products from "../products.json";
-import { useParams } from "react-router-dom";
-
-
 
 function ItemListContainer({ greeting }) {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const categoriaId = useParams();
+  //const categoriaId = useParams();
 
   const asyncMock = new Promise((resolve) => {
     setTimeout(() => {
@@ -45,7 +42,7 @@ function ItemListContainer({ greeting }) {
           ) : (
             <>
               <ItemList items={list} />
-             </>
+            </>
           )}
         </div>
       </div>

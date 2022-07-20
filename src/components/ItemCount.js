@@ -13,9 +13,12 @@ function ItemCount({ stock, initial, onAdd }) {
   }
 
   return (
-    <div className="position-absolute bottom-0 start-50 translate-middle-x">
+    <div className="container">
       {/* El Boton no deja seguir decrementando si es menor a 0 */}
-      <button className="btn btn-outline-primary btn-sm" onClick={decrementar}>
+      <button
+        className="rounded-circle btn btn-outline-primary btn-sm"
+        onClick={decrementar}
+      >
         -
       </button>
 
@@ -25,7 +28,7 @@ function ItemCount({ stock, initial, onAdd }) {
 
       {/* El Boton no deja seguir incrementando si no hay stock disponible */}
       <button
-        className="btn btn-outline-primary btn-sm"
+        className="rounded-circle btn btn-outline-primary btn-sm"
         onClick={count < stock && incrementar}
       >
         +
@@ -33,7 +36,7 @@ function ItemCount({ stock, initial, onAdd }) {
 
       <div>
         <button
-          className="btn btn-outline-primary btn-sm"
+          className="mt-2 btn btn-outline-primary btn-sm"
           onClick={() => {
             onAdd(count);
           }}

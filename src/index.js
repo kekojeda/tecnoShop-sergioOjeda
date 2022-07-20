@@ -6,16 +6,18 @@ import App from "./App";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { CategoriaContainer } from "./components/CategoriaContainer";
+import { Cart } from "./components/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="productos" index element={<ItemListContainer greeting={ "ItemListContainer "} />} />
+        <Route path="/" element={<App />} >
+          <Route path="productos" element={<ItemListContainer greeting={ "ItemListContainer "} />} />
           <Route path="detalleProducto/:id" element={<ItemDetailContainer greeting={ "ItemDetailContainer "}/>} />
           <Route path="productos/:id" element={<CategoriaContainer greeting={ "CategoriaContainer "}/>} />
+          <Route path="cart" element={<Cart /> } />
           <Route path="*" element={<h3>Esta ruta no existe</h3>} />
         </Route>
       </Routes>
