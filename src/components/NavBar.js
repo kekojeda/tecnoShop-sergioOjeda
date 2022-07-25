@@ -28,7 +28,6 @@ function NavBar() {
                 <NavLink
                   to="/"
                   className="nav-link"
-                  activeClassName={"active"}
                   aria-current="page"
                 >
                   Home
@@ -38,7 +37,6 @@ function NavBar() {
                 <NavLink
                   to="/productos"
                   className="nav-link"
-                  activeClassName={"active"}
                   aria-current="page"
                 >
                   Todos los Productos
@@ -48,7 +46,6 @@ function NavBar() {
                 <NavLink
                   to="/productos/mens-clothing"
                   className="nav-link"
-                  activeClassName={"active"}
                   aria-current="page"
                 >
                   Men's Clothing
@@ -58,7 +55,6 @@ function NavBar() {
                 <NavLink
                   to="/productos/jewelery"
                   className="nav-link"
-                  activeClassName={"active"}
                   aria-current="page"
                 >
                   Jewelery
@@ -68,7 +64,6 @@ function NavBar() {
                 <NavLink
                   to="/productos/electronics"
                   className="nav-link"
-                  activeClassName={"active"}
                   aria-current="page"
                 >
                   Electronics
@@ -78,7 +73,6 @@ function NavBar() {
                 <NavLink
                   to="/productos/womens-clothing"
                   className="nav-link"
-                  activeClassName={"active"}
                   aria-current="page"
                 >
                   Women's Clothing

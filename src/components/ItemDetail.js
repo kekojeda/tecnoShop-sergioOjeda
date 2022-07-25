@@ -7,6 +7,7 @@ import { ItemCount } from "./ItemCount";
 function ItemDetail({ id, title, description, price, image }) {
 
   const [cart, setCart] = useState(true);
+  
   const CartContextValue = useContext(CartContext);
 
   return (
@@ -26,7 +27,7 @@ function ItemDetail({ id, title, description, price, image }) {
                 initial={1}
                 onAdd={(n) => {
                   alert(`Se agregaron ${n} productos en el carrito`);
-                  CartContextValue.addItem(title)
+                  CartContextValue.addItem(id, title, price, n)
 
                   setCart(false);
                 }}
