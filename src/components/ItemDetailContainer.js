@@ -7,6 +7,7 @@ function ItemDetailContainer({ greeting }) {
   const [detail, setDetail] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   const productId = useParams();
 
   const product = products.filter((el) => el.id == productId.id);
@@ -24,10 +25,7 @@ function ItemDetailContainer({ greeting }) {
       .finally(() => setIsLoading(false));
   }, [productId.id]);
 
-  console.log("product");
-  console.log(product);
-  console.log("detail");
-  console.log(detail);
+
 
   return (
     <>

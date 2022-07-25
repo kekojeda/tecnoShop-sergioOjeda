@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
 import { ItemCount } from "./ItemCount";
 
 function ItemDetail({ id, title, description, price, image }) {
+
   const [cart, setCart] = useState(true);
+  const CartContextValue = useContext(CartContext);
 
   return (
     <>
@@ -23,6 +26,8 @@ function ItemDetail({ id, title, description, price, image }) {
                 initial={1}
                 onAdd={(n) => {
                   alert(`Se agregaron ${n} productos en el carrito`);
+                  CartContextValue.addItem(title)
+
                   setCart(false);
                 }}
               />
