@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 function CarWidget() {
+
+  const { totalItem} = useContext(CartContext);
+
   return (
     <>
       <button type="button" className="btn btn-outline-dark">
@@ -20,6 +24,8 @@ function CarWidget() {
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
+        
+        <span className="badge badge-dark">{totalItem}</span>
       </button>
     </>
   );
