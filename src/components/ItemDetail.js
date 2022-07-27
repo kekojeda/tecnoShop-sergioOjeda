@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../context/CartContext";
 
 import { ItemCount } from "./ItemCount";
 
@@ -28,6 +28,7 @@ function ItemDetail({ id, title, description, price, image }) {
                 onAdd={(n) => {
                   alert(`Se agregaron ${n} productos en el carrito`);
                   CartContextValue.addItem(id, title, price, n)
+                  
 
                   setCart(false);
                 }}

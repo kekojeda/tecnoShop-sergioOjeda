@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
-import { CartContext } from "./CartContext";
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 function CarWidget() {
 
-  const { totalItem} = useContext(CartContext);
+  const { totalItem } = useContext(CartContext);
 
   return (
     <>
-      <button type="button" className="btn btn-outline-dark">
+    <Link to="/cart" className="btn btn-outline-dark">
+      
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -25,8 +27,14 @@ function CarWidget() {
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         
-        <span className="badge badge-dark">{totalItem}</span>
-      </button>
+        {
+          totalItem > 0 && 
+            <span className="badge badge-dark text-success">{totalItem}</span>
+           
+        }
+        
+      
+      </Link>
     </>
   );
 }
