@@ -25,23 +25,11 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <NavLink
-                  to="/"
-                  className="nav-link"
-                  aria-current="page"
-                >
+                <NavLink to="/" className="nav-link" aria-current="page">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/productos"
-                  className="nav-link"
-                  aria-current="page"
-                >
-                  Todos los Productos
-                </NavLink>
-              </li>
+
               <li className="nav-item">
                 <NavLink
                   to="/category/mens-clothing"

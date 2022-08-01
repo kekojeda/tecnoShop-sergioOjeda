@@ -1,38 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import products from "../products.json";
+//import products from "../products.json";
 import { getProductsById } from "../services/firebase";
 
 function ItemDetailContainer({ greeting }) {
   const [detail, setDetail] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [productDetail, setProductDetail] =useState([])
-  console.log("productDetail", productDetail)
-
+  const [isLoading, setIsLoading] = useState(false);
 
   const productId = useParams();
 
-  console.log("productID", productId)
-  console.log("productId.id", productId.id)
-
-  const product = products.filter((el) => el.id == productId.id);
-
-  const getItem = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(product, setIsLoading(false));
-    }, 2000);
-  });
-
   useEffect(() => {
-    getProductsById(productId.id).then((producto) => setProductDetail(producto))
-    getItem
-      .then((product) => setDetail(product))
-      .catch((err) => console.log(err))
+    setIsLoading(true);
+    getProductsById(productId.id)
+      .then((producto) => setDetail(producto))
       .finally(() => setIsLoading(false));
   }, [productId.id]);
-
-
 
   return (
     <>
@@ -54,22 +37,7 @@ function ItemDetailContainer({ greeting }) {
               ></div>
             </div>
           ) : (
-            <>
-              {detail &&
-                detail.map(
-                  ({ id, title, price, description, category, image }) => (
-                    <ItemDetail
-                      id={id}
-                      title={title}
-                      price={price}
-                      description={description}
-                      category={category}
-                      image={image}
-                      key={id}
-                    />
-                  )
-                )}
-            </>
+            <>{detail && <ItemDetail item={detail} />}</>
           )}
         </div>
       </div>

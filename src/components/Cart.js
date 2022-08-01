@@ -10,11 +10,12 @@ function Cart() {
     <>
       {item.length <= 0 ? (
         <div className="alert alert-danger" role="alert">
-        Todavia no hay elementos en el carrito, por favor, primero agregue un producto
-        <Link to="/" className="btn btn-outline-primary btn-sm m-2">
-                Ver Listado de productos
-              </Link>
-      </div>
+          Todavia no hay elementos en el carrito, por favor, primero agregue un
+          producto
+          <Link to="/" className="btn btn-outline-primary btn-sm m-2">
+            Ver Listado de productos
+          </Link>
+        </div>
       ) : (
         <>
           <div className="container">

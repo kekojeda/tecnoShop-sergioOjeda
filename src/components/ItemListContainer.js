@@ -6,22 +6,19 @@ import { useParams } from "react-router-dom";
 function ItemListContainer({ greeting }) {
   const [list, setList] = useState([]);
 
-  console.log("productos: ", list);
+  const { categoryId } = useParams();
+
   const [isLoading, setIsLoading] = useState(true);
 
-  const { categoryId } = useParams();
-  console.log("categoryID: ", categoryId);
-
   useEffect(() => {
-      getProducts(categoryId)
-        .then((snapshot) => {
-          setList(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-        })
-        .catch((err) => console.log(err))
-        .finally(() => setIsLoading(false));
-    },
-    [categoryId]
-  );
+    setIsLoading(true);
+    getProducts(categoryId)
+      .then((snapshot) => {
+        setList(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
+  }, [categoryId]);
 
   return (
     <>

@@ -4,31 +4,29 @@ import { CartContext } from "../context/CartContext";
 
 import { ItemCount } from "./ItemCount";
 
-function ItemDetail({ id, title, description, price, image }) {
-
+function ItemDetail({ item }) {
   const [cart, setCart] = useState(true);
-  
+
   const CartContextValue = useContext(CartContext);
 
   return (
     <>
       <div className="col">
         <div className="card">
-          <h5 className="card-title mx-auto">{title}</h5>
-          <img src={image} className="w-25 mx-auto" alt={title} />
+          <h5 className="card-title mx-auto">{item.title}</h5>
+          <img src={item.image} className="w-25 mx-auto" alt={item.title} />
           <div className="card-body mx-auto">
             <h4 className="card-text">Descripcion:</h4>
-            <p className="card-text">{description}</p>
+            <p className="card-text">{item.description}</p>
             <h4 className="card-text mx-auto">Precio:</h4>
-            <p className="card-text mx-auto">${price}</p>
+            <p className="card-text mx-auto">${item.price}</p>
             {cart ? (
               <ItemCount
                 stock={5}
                 initial={1}
                 onAdd={(n) => {
                   alert(`Se agregaron ${n} productos en el carrito`);
-                  CartContextValue.addItem(id, title, price, n)
-                  
+                  CartContextValue.addItem(item.id, item.title, item.price, n);
 
                   setCart(false);
                 }}
