@@ -44,7 +44,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/productos/mens-clothing"
+                  to="/category/mens-clothing"
                   className="nav-link"
                   aria-current="page"
                 >

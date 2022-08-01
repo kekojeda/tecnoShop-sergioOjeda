@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { ItemList } from "./ItemList";
-import products from "../products.json";
+import { getProducts } from "../services/firebase";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer({ greeting }) {
   const [list, setList] = useState([]);
+
+  console.log("productos: ", list);
   const [isLoading, setIsLoading] = useState(true);
 
-  //const categoriaId = useParams();
-
-  const asyncMock = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 2000);
-  });
+  const { categoryId } = useParams();
+  console.log("categoryID: ", categoryId);
 
   useEffect(() => {
-    asyncMock
-      .then((products) => setList(products))
-      .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false));
-  }, []);
+      getProducts(categoryId)
+        .then((snapshot) => {
+          setList(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        })
+        .catch((err) => console.log(err))
+        .finally(() => setIsLoading(false));
+    },
+    [categoryId]
+  );
 
   return (
     <>
