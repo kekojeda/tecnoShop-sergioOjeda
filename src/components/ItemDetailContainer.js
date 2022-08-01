@@ -13,6 +13,9 @@ function ItemDetailContainer({ greeting }) {
 
   const productId = useParams();
 
+  console.log("productID", productId)
+  console.log("productId.id", productId.id)
+
   const product = products.filter((el) => el.id == productId.id);
 
   const getItem = new Promise((resolve) => {

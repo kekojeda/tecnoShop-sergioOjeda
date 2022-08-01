@@ -5,9 +5,8 @@ import { ItemListContainer } from "./components/ItemListContainer";
 import { CategoriaContainer } from "./components/CategoriaContainer";
 import { Cart } from "./components/Cart";
 import { NavBar } from "./components/NavBar";
-import { CartContextProvider } from "./context/CartContext"
-import firebase from "./services/firebase"
-
+import { CartContextProvider } from "./context/CartContext";
+import firebase from "./services/firebase";
 
 function App() {
   return (
@@ -18,20 +17,15 @@ function App() {
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route
-              path="productos"
-              element={<ItemListContainer greeting={"ItemListContainer "} />}
-            />
-            <Route
               path="detalleProducto/:id"
               element={
                 <ItemDetailContainer greeting={"ItemDetailContainer "} />
               }
             />
             <Route
-              path="category/:nombreCategoria"
-              element={<ItemDetailContainer greeting={"CategoriaContainer "} />}
+              path="category/:categoryId"
+              element={<ItemListContainer />}
             />
-            <Route path="/category/:categoryId" element={<ItemListContainer />} />
             <Route path="cart" element={<Cart />} />
             <Route path="*" element={<h3>Esta ruta no existe</h3>} />
           </Routes>

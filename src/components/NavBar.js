@@ -53,7 +53,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/productos/jewelery"
+                  to="/category/jewelery"
                   className="nav-link"
                   aria-current="page"
                 >
@@ -62,7 +62,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/productos/electronics"
+                  to="/category/electronics"
                   className="nav-link"
                   aria-current="page"
                 >
@@ -71,7 +71,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/productos/womens-clothing"
+                  to="/category/womens-clothing"
                   className="nav-link"
                   aria-current="page"
                 >
