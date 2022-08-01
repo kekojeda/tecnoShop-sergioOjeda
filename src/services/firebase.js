@@ -41,7 +41,13 @@ export const getProducts = async (categoryId) => {
     return await getAllProducts();
   }
 };
+/*
+export const getProductsById = async (productId) => {
+  return (await getDoc(doc(db, "productos", productId))).data();
+};*/
 
 export const getProductsById = async (productId) => {
+  if (!productId) throw new Error("Missing productId");
+
   return (await getDoc(doc(db, "productos", productId))).data();
 };

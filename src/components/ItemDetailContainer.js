@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
-//import products from "../products.json";
 import { getProductsById } from "../services/firebase";
 
 function ItemDetailContainer({ greeting }) {
   const [detail, setDetail] = useState([]);
+  console.log(detail)
   const [isLoading, setIsLoading] = useState(false);
 
   const productId = useParams();
+  console.log(productId)
+
+
 
   useEffect(() => {
-    setIsLoading(true);
+   setIsLoading(true);
     getProductsById(productId.id)
       .then((producto) => setDetail(producto))
       .finally(() => setIsLoading(false));
