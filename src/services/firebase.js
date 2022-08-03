@@ -7,6 +7,8 @@ import {
   getFirestore,
   query,
   where,
+  addDoc,
+  setDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -51,3 +53,20 @@ export const getProductsById = async (productId) => {
 
   return (await getDoc(doc(db, "productos", productId))).data();
 };
+
+
+export const sendOrder = async (producto) => {
+  const order = {
+    buyer: {name: "Sergio", phone: "3112125246", email: "compras@gmail.com"},
+    items: [{name: "nombreProducto", price: 100}],
+    total: 100
+  }
+  const colRef = collection(db,"orders");
+  return await addDoc(colRef, producto)
+  
+}
+
+export const updateCart = async (producto, id) => {
+  const docRef =doc(db, "Productos", id)
+  await setDoc(docRef, producto)
+}

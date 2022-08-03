@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const { item, totalItem, totalPrecio, removeItem, clear } =
+  const { item, totalItem, totalPrecio, removeItem, clear, sendOrder} =
     useContext(CartContext);
+
+    const CartContextValue = useContext(CartContext);
+
+    const [order, setOrder] = useState({})
 
   return (
     <>
@@ -28,6 +32,14 @@ function Cart() {
               >
                 Vaciar Carrito
               </button>
+              <button
+                  onClick={() => CartContextValue.sendOrder()}
+               
+                type="button"
+                className="btn btn-danger btn-sm m-2"
+              >
+                Generar Orden
+              </button>
             </div>
             <div className="alert alert-primary" role="alert">
               La cantidad de items total en el carito es {totalItem}
@@ -37,7 +49,7 @@ function Cart() {
             <ul className="list-group">
               {item.map((el) => (
                 <li className="list-group-item d-flex justify-content-between align-items-center">
-                  cantidad: {el.cantidad} | {el.producto}
+                  cantidad: {el.cantidad} | {el.producto} / {el.id}
                   <span className="badge-primary badge-pill"></span>
                   <button
                     onClick={() => removeItem(el.id)}

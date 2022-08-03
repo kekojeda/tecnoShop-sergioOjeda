@@ -4,10 +4,12 @@ const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [item, setItem] = useState([]);
+  const [order, setOrder] = useState({});
 
   const totalItem = item
     .map((el) => el.cantidad)
     .reduce((valAnterior, valActual) => valAnterior + valActual, 0);
+
   const totalPrecio = item
     .map((el) => el.cantidad * el.precio)
     .reduce((valAnterior, valActual) => valAnterior + valActual, 0);
@@ -21,12 +23,14 @@ export const CartContextProvider = ({ children }) => {
     return item.filter((el) => el.id === id).length;
   };
 
-  const addItem = (id, product, price, quantity) => {
+  const addItem = (id, product, price, quantity, key) => {
+    console.log(id);
     const _item = {
       id: id,
       producto: product,
       precio: price,
       cantidad: quantity,
+      key: id,
     };
 
     isInCart(id) ? addQuantity(id, quantity) : setItem([...item, _item]);
@@ -41,6 +45,21 @@ export const CartContextProvider = ({ children }) => {
     setItem([]);
   };
 
+  const sendOrder = () => {
+    const _order = {
+      buyer: {
+        name: "Sergio",
+        phone: "123445",
+        email: "mailCompras@gmail.com",
+      },
+      items: item,
+      total: totalPrecio,
+    };
+    setOrder([_order]);
+
+    console.log(order);
+  };
+
   const data = {
     item,
     totalItem,
@@ -48,6 +67,7 @@ export const CartContextProvider = ({ children }) => {
     addItem,
     removeItem,
     clear,
+    sendOrder,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

@@ -5,18 +5,19 @@ import { getProductsById } from "../services/firebase";
 
 function ItemDetailContainer({ greeting }) {
   const [detail, setDetail] = useState([]);
-  console.log(detail)
+ 
   const [isLoading, setIsLoading] = useState(false);
 
   const productId = useParams();
-  console.log(productId)
+  console.log("ID item detail container", productId.id)
+  console.log(detail)
 
 
 
   useEffect(() => {
    setIsLoading(true);
     getProductsById(productId.id)
-      .then((producto) => setDetail(producto))
+      .then((producto) => setDetail({id: productId.id, ...producto}))
       .finally(() => setIsLoading(false));
   }, [productId.id]);
 
@@ -40,7 +41,8 @@ function ItemDetailContainer({ greeting }) {
               ></div>
             </div>
           ) : (
-            <>{detail && <ItemDetail item={detail} />}</>
+            <>{
+              detail && <ItemDetail item={detail} />}</>
           )}
         </div>
       </div>

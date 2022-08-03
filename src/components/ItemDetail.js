@@ -25,7 +25,7 @@ function ItemDetail({ item }) {
                 stock={5}
                 initial={1}
                 onAdd={(n) => {
-                  alert(`Se agregaron ${n} productos en el carrito`);
+                  alert(`Se agregaron ${n} productos en el carrito / id: ${item.id}`);
                   CartContextValue.addItem(item.id, item.title, item.price, n);
 
                   setCart(false);
