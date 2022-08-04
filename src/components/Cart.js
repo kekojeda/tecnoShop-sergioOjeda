@@ -3,12 +3,12 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const { item, totalItem, totalPrecio, removeItem, clear, sendOrder} =
+  const { item, totalItem, totalPrecio, removeItem, clear, sendOrder } =
     useContext(CartContext);
 
-    const CartContextValue = useContext(CartContext);
+  const CartContextValue = useContext(CartContext);
 
-    const [order, setOrder] = useState({})
+  const [order, setOrder] = useState({});
 
   return (
     <>
@@ -33,10 +33,9 @@ function Cart() {
                 Vaciar Carrito
               </button>
               <button
-                  onClick={() => CartContextValue.sendOrder()}
-               
+                onClick={() => CartContextValue.sendOrder()}
                 type="button"
-                className="btn btn-danger btn-sm m-2"
+                className="btn btn-success btn-sm m-2"
               >
                 Generar Orden
               </button>

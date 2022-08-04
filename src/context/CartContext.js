@@ -1,10 +1,16 @@
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import React, { createContext, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [item, setItem] = useState([]);
-  const [order, setOrder] = useState({});
+  const [orderId, setOrderId] = useState("");
+
+  const _date = new Date();
+  const fechaDMAH = `${_date.getDay()}/${
+    _date.getMonth() + 1
+  }/${_date.getFullYear()} - ${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`;
 
   const totalItem = item
     .map((el) => el.cantidad)
@@ -23,14 +29,13 @@ export const CartContextProvider = ({ children }) => {
     return item.filter((el) => el.id === id).length;
   };
 
-  const addItem = (id, product, price, quantity, key) => {
+  const addItem = (id, product, price, quantity) => {
     console.log(id);
     const _item = {
       id: id,
       producto: product,
       precio: price,
       cantidad: quantity,
-      key: id,
     };
 
     isInCart(id) ? addQuantity(id, quantity) : setItem([...item, _item]);
@@ -53,11 +58,21 @@ export const CartContextProvider = ({ children }) => {
         email: "mailCompras@gmail.com",
       },
       items: item,
+      date: fechaDMAH,
       total: totalPrecio,
     };
-    setOrder([_order]);
+    
+    const db = getFirestore();
 
-    console.log(order);
+    const orderCollection = collection(db, "orders");
+
+    addDoc(orderCollection, _order).then(({ id }) => setOrderId(id));
+    alert(
+      "Su Orden fue cargada con exito, este es su numero de orden: \n" +
+        orderId +
+        " \nPor favor, guardelo en un lugar seguro."
+    );
+    clear();
   };
 
   const data = {
