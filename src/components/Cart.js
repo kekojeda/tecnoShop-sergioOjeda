@@ -2,16 +2,13 @@ import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
-
 function Cart() {
-
   const { item, totalItem, totalPrecio, removeItem, clear, sendOrder } =
     useContext(CartContext);
 
-  const CartContextValue = useContext(CartContext);
-
-  const [order, setOrder] = useState({});
-
+  const [buyerName, setBuyerName] = useState("");
+  const [buyerPhone, setBuyerPhone] = useState("");
+  const [buyerEmail, setBuyerEmail] = useState("");
 
   return (
     <>
@@ -26,8 +23,8 @@ function Cart() {
       ) : (
         <>
           <section
-            className="h-100 h-custom"
-            style={{ backgroundColor: "#eee" }}
+            className="h-100"
+            style={{ backgroundColor: "#eee", height: "100vh !important" }}
           >
             <div className="container py-5 h-100">
               <div className="row d-flex justify-content-center align-items-center h-100">
@@ -39,7 +36,7 @@ function Cart() {
                           <h5 className="mb-3">
                             <Link to="/" className="text-body">
                               <i className="fas fa-long-arrow-alt-left me-2"></i>
-                              Continue comprando
+                              Continuar comprando
                             </Link>
                           </h5>
                           <hr />
@@ -89,9 +86,11 @@ function Cart() {
                                         {el.cantidad}
                                       </h5>
                                     </div>
-                                    
+
                                     <div style={{ width: 80 + "px" }}>
-                                      <h5 className="mb-0">${el.precio * el.cantidad}</h5>
+                                      <h5 className="mb-0">
+                                        ${el.precio * el.cantidad}
+                                      </h5>
                                     </div>
                                     <button
                                       onClick={() => removeItem(el.id)}
@@ -115,7 +114,7 @@ function Cart() {
                               <div className="d-flex justify-content-between align-items-center mb-4">
                                 <h5 className="mb-0">Datos del comprador</h5>
                                 <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                                  src="https://firebasestorage.googleapis.com/v0/b/tecnoshop-c8260.appspot.com/o/AVATAR-TECNOsHOP.jpg?alt=media&token=cfb8ab51-09ed-4605-977f-860275f527aa"
                                   className="img-fluid rounded-3"
                                   style={{ width: 45 + "px" }}
                                   alt="Avatar"
@@ -126,34 +125,39 @@ function Cart() {
                                 <div className="form-outline form-white mb-4">
                                   <input
                                     type="text"
-                                    id="typeName"
                                     className="form-control form-control-lg"
-                                    siez="17"
+                                    
                                     placeholder="Nombre"
+                                    value={buyerName}
+                                    onChange={(ev) =>
+                                      setBuyerName(ev.target.value)
+                                    }
                                   />
                                 </div>
 
                                 <div className="form-outline form-white mb-4">
                                   <input
-                                    type="text"
-                                    id="typeText"
+                                    type="tel"
                                     className="form-control form-control-lg"
-                                    siez="17"
+                                    
                                     placeholder="Télefono"
-                                    minLength="19"
-                                    maxLength="19"
+                                    value={buyerPhone}
+                                    onChange={(ev) =>
+                                      setBuyerPhone(ev.target.value)
+                                    }
                                   />
                                 </div>
 
                                 <div className="form-outline form-white mb-4">
                                   <input
-                                    type="text"
-                                    id="typeText"
+                                    type="email"
                                     className="form-control form-control-lg"
-                                    siez="17"
+                                  
                                     placeholder="Email -> xxxxx@xxxxx"
-                                    minLength="19"
-                                    maxLength="19"
+                                    value={buyerEmail}
+                                    onChange={(ev) =>
+                                      setBuyerEmail(ev.target.value)
+                                    }
                                   />
                                 </div>
                               </form>
@@ -178,17 +182,19 @@ function Cart() {
                               <button
                                 type="button"
                                 className="mx-2 btn btn-info btn-block btn-lg"
-                                onClick={() => CartContextValue.sendOrder()}
+                                onClick={() =>
+                                  sendOrder(buyerName, buyerPhone, buyerEmail)
+                                }
                               >
                                 <div className="d-flex justify-content-between">
-                                  <span>$4818.00</span>
+                                  <span>${totalPrecio}</span>
                                   <span>
                                     {" "} Generar Orden
                                     <i className="fas fa-long-arrow-alt-right ms-2"></i>
                                   </span>
                                 </div>
                               </button>
-                          
+
                               <button
                                 onClick={clear}
                                 type="button"
@@ -206,45 +212,6 @@ function Cart() {
               </div>
             </div>
           </section>
-          <div className="container">
-            <div className="alert alert-primary" role="alert">
-              Total ${totalPrecio}
-              <button
-                onClick={clear}
-                type="button"
-                className="btn btn-danger btn-sm m-2"
-              >
-                Vaciar Carrito
-              </button>
-              <button
-                onClick={() => CartContextValue.sendOrder()}
-                type="button"
-                className="btn btn-success btn-sm m-2"
-              >
-                Generar Orden
-              </button>
-            </div>
-            <div className="alert alert-primary" role="alert">
-              La cantidad de items total en el carito es {totalItem}
-            </div>
-          </div>
-          <div className="container">
-            <ul className="list-group">
-              {item.map((el) => (
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                  cantidad: {el.cantidad} | {el.producto} / {el.id}
-                  <span className="badge-primary badge-pill"></span>
-                  <button
-                    onClick={() => removeItem(el.id)}
-                    type="button"
-                    className="btn btn-danger btn-sm"
-                  >
-                    Eliminar
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
         </>
       )}
     </>

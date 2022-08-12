@@ -6,11 +6,7 @@ const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
   const [item, setItem] = useState([]);
   const [orderId, setOrderId] = useState("");
-
-  const _date = new Date();
-  const fechaDMAH = `${_date.getDay()}/${
-    _date.getMonth() + 1
-  }/${_date.getFullYear()} - ${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`;
+  
 
   const totalItem = item
     .map((el) => el.cantidad)
@@ -32,9 +28,7 @@ export const CartContextProvider = ({ children }) => {
     return item.filter((el) => el.id === id).length;
   };
 
-
   const addItem = (id, product, price, quantity, image, category, key) => {
-
     console.log(id);
     const _item = {
       id: id,
@@ -43,9 +37,8 @@ export const CartContextProvider = ({ children }) => {
       cantidad: quantity,
 
       key: id,
-      imagen:image,
-      categoria: category
-
+      imagen: image,
+      categoria: category,
     };
 
     isInCart(id) ? addQuantity(id, quantity) : setItem([...item, _item]);
@@ -60,18 +53,23 @@ export const CartContextProvider = ({ children }) => {
     setItem([]);
   };
 
-  const sendOrder = () => {
+  const sendOrder = (buyerName,buyerPhone,buyerEmail) => {
+    const _date = new Date();
+    const fechaDMAH = `${_date.getDay()}/${
+      _date.getMonth() + 1
+    }/${_date.getFullYear()} - ${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`;
     const _order = {
       buyer: {
-        name: "Sergio",
-        phone: "123445",
-        email: "mailCompras@gmail.com",
+        name: buyerName,
+        phone: buyerPhone,
+        email: buyerEmail,
       },
       items: item,
       date: fechaDMAH,
       total: totalPrecio,
     };
-    
+
+
     const db = getFirestore();
 
     const orderCollection = collection(db, "orders");
@@ -80,7 +78,7 @@ export const CartContextProvider = ({ children }) => {
     alert(
       "Su Orden fue cargada con exito, este es su numero de orden: \n" +
         orderId +
-        " \nPor favor, guardelo en un lugar seguro."
+        " \nPor favor, guardelo en un lugar seguro. fecha> "+ fechaDMAH
     );
     clear();
   };
