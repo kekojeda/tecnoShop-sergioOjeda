@@ -15,15 +15,18 @@ export const CartContextProvider = ({ children }) => {
     .reduce((valAnterior, valActual) => valAnterior + valActual, 0);
 
   const addQuantity = (id, cantidad) => {
-    const found = item.find((element) => element.id === id);
-    found.cantidad = found.cantidad + cantidad;
+    const foundItem = item.find((element) => element.id === id);
+    foundItem.cantidad = foundItem.cantidad + cantidad;
+
+    const remove = item.filter((el) => el.id !== foundItem.id);
+    setItem([...remove, foundItem]);
   };
 
   const isInCart = (id) => {
     return item.filter((el) => el.id === id).length;
   };
 
-  const addItem = (id, product, price, quantity, key) => {
+  const addItem = (id, product, price, quantity, image, category, key) => {
     console.log(id);
     const _item = {
       id: id,
@@ -31,6 +34,8 @@ export const CartContextProvider = ({ children }) => {
       precio: price,
       cantidad: quantity,
       key: id,
+      imagen:image,
+      categoria: category
     };
 
     isInCart(id) ? addQuantity(id, quantity) : setItem([...item, _item]);
