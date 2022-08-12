@@ -11,6 +11,7 @@ function ItemDetail({ item }) {
 
   return (
     <>
+
       <div className="card  mb-3">
         <div className="row g-0">
           <div className="col-md-6">
@@ -46,7 +47,6 @@ function ItemDetail({ item }) {
                       item.image,
                       item.category
                     );
-
                     setCart(false);
                   }}
                 />

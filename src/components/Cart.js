@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 
 function Cart() {
-  const { item, totalItem, totalPrecio, removeItem, clear } =
+
+  const { item, totalItem, totalPrecio, removeItem, clear, sendOrder } =
     useContext(CartContext);
 
   const CartContextValue = useContext(CartContext);
+
+  const [order, setOrder] = useState({});
+
 
   return (
     <>
@@ -215,7 +219,7 @@ function Cart() {
               <button
                 onClick={() => CartContextValue.sendOrder()}
                 type="button"
-                className="btn btn-danger btn-sm m-2"
+                className="btn btn-success btn-sm m-2"
               >
                 Generar Orden
               </button>
