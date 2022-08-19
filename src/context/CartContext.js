@@ -1,12 +1,20 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getFirestore,
+  Timestamp,
+} from "firebase/firestore";
 import React, { createContext, useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [item, setItem] = useState([]);
   const [orderId, setOrderId] = useState("");
-  
+
+  const customAlert = withReactContent(Swal);
 
   const totalItem = item
     .map((el) => el.cantidad)
@@ -29,7 +37,6 @@ export const CartContextProvider = ({ children }) => {
   };
 
   const addItem = (id, product, price, quantity, image, category, key) => {
-    console.log(id);
     const _item = {
       id: id,
       producto: product,
@@ -53,11 +60,7 @@ export const CartContextProvider = ({ children }) => {
     setItem([]);
   };
 
-  const sendOrder = (buyerName,buyerPhone,buyerEmail) => {
-    const _date = new Date();
-    const fechaDMAH = `${_date.getDay()}/${
-      _date.getMonth() + 1
-    }/${_date.getFullYear()} - ${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`;
+  const sendOrder = (buyerName, buyerPhone, buyerEmail) => {
     const _order = {
       buyer: {
         name: buyerName,
@@ -65,21 +68,21 @@ export const CartContextProvider = ({ children }) => {
         email: buyerEmail,
       },
       items: item,
-      date: fechaDMAH,
+      date: Timestamp.fromDate(new Date()),
       total: totalPrecio,
     };
-
 
     const db = getFirestore();
 
     const orderCollection = collection(db, "orders");
 
     addDoc(orderCollection, _order).then(({ id }) => setOrderId(id));
-    alert(
-      "Su Orden fue cargada con exito, este es su numero de orden: \n" +
-        orderId +
-        " \nPor favor, guardelo en un lugar seguro. fecha> "+ fechaDMAH
+    customAlert.fire(
+      "Su Orden fue cargada con exito, este es su numero de orden:",
+      orderId,
+      "success"
     );
+
     clear();
   };
 
@@ -91,6 +94,7 @@ export const CartContextProvider = ({ children }) => {
     removeItem,
     clear,
     sendOrder,
+    orderId,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

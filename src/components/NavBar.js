@@ -66,12 +66,14 @@ function NavBar() {
                   Women's Clothing
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/track" className="nav-link" aria-current="page">
+                  Segui tu orden
+                </NavLink>
+              </li>
             </ul>
           </div>
           <CarWidget />
-          <button type="button" className="btn btn-outline-dark">
-            Login
-          </button>
         </div>
       </nav>
     </>

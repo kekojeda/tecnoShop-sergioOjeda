@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 import { ItemCount } from "./ItemCount";
 
@@ -9,9 +11,10 @@ function ItemDetail({ item }) {
 
   const CartContextValue = useContext(CartContext);
 
+  const customAlert = withReactContent(Swal);
+
   return (
     <>
-
       <div className="card  mb-3">
         <div className="row g-0">
           <div className="col-md-6">
@@ -36,9 +39,12 @@ function ItemDetail({ item }) {
                   stock={5}
                   initial={1}
                   onAdd={(n) => {
-                    alert(
-                      `Se agregaron ${n} productos en el carrito / id: ${item.id}`
+                    customAlert.fire(
+                      `Se agrego ${n} productos al carrito.`,
+                      n,
+                      "success"
                     );
+
                     CartContextValue.addItem(
                       item.id,
                       item.title,
@@ -52,17 +58,18 @@ function ItemDetail({ item }) {
                 />
               ) : (
                 <div className="text-center">
-                <Link to="/cart" className="p-3 mt-2 btn btn-outline-primary btn-sm">
-                  Ver el carrito
-                </Link>
+                  <Link
+                    to="/cart"
+                    className="p-3 mt-2 btn btn-outline-primary btn-sm"
+                  >
+                    Ver el carrito
+                  </Link>
                 </div>
               )}
-              
             </div>
           </div>
         </div>
       </div>
-      
     </>
   );
 }

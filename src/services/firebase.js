@@ -24,6 +24,12 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
+export const getOrderById = async (orderId) => {
+  if (!orderId) throw new Error("Missing OrderId");
+
+  return (await getDoc(doc(db, "orders", orderId))).data();
+};
+
 export const getAllProducts = async () => {
   const itemCollection = collection(db, "productos");
   const q = query(itemCollection);

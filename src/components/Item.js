@@ -10,9 +10,8 @@ function Item({ id, title, description, price, image }) {
           <img src={image} className="w-50  mx-auto" alt={title} />
           <div className="card-body mx-auto">
             <p className="card-text">{description}</p>
-            <p className="card-text mx-auto">
-              ${price}</p>
-            
+            <p className="card-text mx-auto">${price}</p>
+
             <Link
               to={"/detalleProducto/" + id}
               className="m-3 position-absolute bottom-0 translate-middle-x btn btn-outline-dark text-nowrap"

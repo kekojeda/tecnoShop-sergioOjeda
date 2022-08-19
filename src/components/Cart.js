@@ -3,8 +3,15 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const { item, totalItem, totalPrecio, removeItem, clear, sendOrder } =
-    useContext(CartContext);
+  const {
+    item,
+    totalItem,
+    totalPrecio,
+    removeItem,
+    clear,
+    sendOrder,
+    orderId,
+  } = useContext(CartContext);
 
   const [buyerName, setBuyerName] = useState("");
   const [buyerPhone, setBuyerPhone] = useState("");
@@ -12,8 +19,18 @@ function Cart() {
 
   return (
     <>
+      {orderId ? (
+        <div className="alert alert-success text-center" role="alert">
+          <p>
+            Este es su número de order, por favor, guardelo en un lugar seguro.
+          </p>
+          <p className="fs-1 fw-bold">{orderId}</p>
+        </div>
+      ) : (
+        ""
+      )}
       {item.length <= 0 ? (
-        <div className="alert alert-danger" role="alert">
+        <div className="alert alert-danger center" role="alert">
           Todavia no hay elementos en el carrito, por favor, primero agregue un
           producto
           <Link to="/" className="btn btn-outline-primary btn-sm m-2">
@@ -126,7 +143,6 @@ function Cart() {
                                   <input
                                     type="text"
                                     className="form-control form-control-lg"
-                                    
                                     placeholder="Nombre"
                                     value={buyerName}
                                     onChange={(ev) =>
@@ -139,7 +155,6 @@ function Cart() {
                                   <input
                                     type="tel"
                                     className="form-control form-control-lg"
-                                    
                                     placeholder="Télefono"
                                     value={buyerPhone}
                                     onChange={(ev) =>
@@ -152,7 +167,6 @@ function Cart() {
                                   <input
                                     type="email"
                                     className="form-control form-control-lg"
-                                  
                                     placeholder="Email -> xxxxx@xxxxx"
                                     value={buyerEmail}
                                     onChange={(ev) =>

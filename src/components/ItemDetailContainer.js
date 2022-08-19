@@ -9,8 +9,6 @@ function ItemDetailContainer({ greeting }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const productId = useParams();
-  console.log("ID item detail container", productId.id);
-  console.log(detail);
 
   useEffect(() => {
     setIsLoading(true);
