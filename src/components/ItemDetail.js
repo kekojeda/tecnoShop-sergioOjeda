@@ -60,7 +60,8 @@ function ItemDetail({ item }) {
                 <div className="text-center">
                   <Link
                     to="/cart"
-                    className="p-3 mt-2 btn btn-outline-primary btn-sm"
+                    className="p-3 mt-2 btn btn-outline-dark btn-sm"
+                    style={{ borderColor: "#c2000b", color: "#c2000b" }}
                   >
                     Ver el carrito
                   </Link>

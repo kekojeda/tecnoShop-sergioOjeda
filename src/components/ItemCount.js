@@ -15,7 +15,15 @@ function ItemCount({ stock, initial, onAdd }) {
   return (
     <div className="container text-center">
       {/* El Boton no deja seguir decrementando si es menor a 0 */}
-      <button className="p-2 btn btn-primary btn-sm" onClick={decrementar}>
+      <button
+        className="p-2 btn btn-primary btn-sm"
+        onClick={decrementar}
+        style={{
+          backgroundColor: "#c2000b",
+          borderColor: "#c2000b",
+          color: "white",
+        }}
+      >
          - 
       </button>
 
@@ -27,13 +35,19 @@ function ItemCount({ stock, initial, onAdd }) {
       <button
         className="p-2 btn btn-primary btn-sm"
         onClick={count < stock && incrementar}
+        style={{
+          backgroundColor: "#c2000b",
+          borderColor: "#c2000b",
+          color: "white",
+        }}
       >
          + 
       </button>
 
       <div>
         <button
-          className="p-3 mt-2 btn btn-outline-primary btn-sm"
+          className="p-3 mt-2 btn btn-outline-dark btn-sm"
+          style={{ borderColor: "#c2000b", color: "#c2000b" }}
           onClick={() => {
             onAdd(count);
           }}

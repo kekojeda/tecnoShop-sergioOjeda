@@ -4,7 +4,7 @@ import { Item } from "./Item";
 function ItemList({ items }) {
   return (
     <>
-      {items.map(({ id, title, price, category, image }) => (
+      {items.map(({ id, title, price, category, description, image }) => (
         <Item
           id={id}
           title={title}
@@ -12,6 +12,7 @@ function ItemList({ items }) {
           category={category}
           image={image}
           key={id}
+          description={description}
         />
       ))}
     </>

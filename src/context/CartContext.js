@@ -78,7 +78,7 @@ export const CartContextProvider = ({ children }) => {
 
     addDoc(orderCollection, _order).then(({ id }) => setOrderId(id));
     customAlert.fire(
-      "Su Orden fue cargada con exito, este es su numero de orden:",
+      "Su Orden fue cargada con exito, Gracias por su compra",
       orderId,
       "success"
     );

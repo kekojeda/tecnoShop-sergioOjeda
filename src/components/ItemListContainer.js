@@ -23,7 +23,6 @@ function ItemListContainer({ greeting }) {
   return (
     <>
       <div className="container">
-        <h5 className="card-title">{greeting}</h5>
         <div className="row">
           {isLoading ? (
             <div className="d-flex align-items-center">

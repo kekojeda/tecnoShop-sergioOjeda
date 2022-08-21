@@ -21,6 +21,15 @@ Este proyecto consiste en el desarrollo front-end de una tienda virtual, usando 
  *Muestra el detalle de un item especifico, recibiendo el id del item seleccionado. Usa ItemCount para elegir la cantidad de items a agregar al carrito*
  ### ItemCount
  *Muestra la cantidad de items que se agregaran al carrito, con la opcion de incrementar o decrementar esa cantidad, recibe el stock, cantidad inicial y una funcion, que sera la encargada de agregar estos items al carrito y usando cartContext los agrega al carrito*
-  ### ItemDetailContainer
+ ### ItemDetailContainer
 *Recibe el id del item seleccionado y le pasa el item asociado a ese ID a ItemDetail*
+### Cart
+*Muestra todos los items agregados al carrito, permite elminiar items y completar la orden*
+### OrderTrack
+*Solicita el ID de una orden para mostrar resumen y estado de la misma*
+
+## Contexto
+
+### CartContext
+*Estados y funciones utiles para usar en Cart*
  

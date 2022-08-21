@@ -7,16 +7,12 @@ function OrderTrack() {
 
   const getOrder = () => {
     getOrderById(orderId).then((order) => setOrderTrack([order]));
-
-    console.log(orderTrack);
-    console.log(orderTrack[0].buyer.email);
   };
 
   const preventSubmit = (e) => {
     e.preventDefault();
-    console.log("Se evito el submit a");
+    //console.log("Se evito el submit");
   };
-  //s
 
   return (
     <>
@@ -33,9 +29,9 @@ function OrderTrack() {
           />
         </div>
 
-        <div class="m-3 d-grid gap-2">
+        <div className="m-3 d-grid gap-2">
           <button
-            class="btn btn-outline-success"
+            className="btn btn-outline-success"
             type="button"
             onClick={() => {
               getOrder();
@@ -55,7 +51,7 @@ function OrderTrack() {
           <p>Telefono: {orderTrack[0].buyer.phone}</p>
           <p>Email: {orderTrack[0].buyer.email}</p>
           <p>Total de items en la orden: {orderTrack[0].items.length}</p>
-          <p>Precio total de la orden: ${orderTrack[0].total}</p>
+          <p>Precio total de la orden: ${orderTrack[0].total.toFixed(2)}</p>
 
           <hr />
           <h4 className="alert-heading">Estado de la Orden: EN PROGRESO</h4>
@@ -64,7 +60,7 @@ function OrderTrack() {
           </p>
         </div>
       ) : (
-        <div class="alert alert-info" role="alert">
+        <div className="alert alert-info" role="alert">
           La orden ingresada no es valida o todavia no se ingreso.
         </div>
       )}

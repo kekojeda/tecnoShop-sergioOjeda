@@ -17,6 +17,13 @@ function Cart() {
   const [buyerPhone, setBuyerPhone] = useState("");
   const [buyerEmail, setBuyerEmail] = useState("");
 
+  const nroOrden = () => {
+    <div id="nroOrden" className="alert alert-success text-center" role="alert">
+      <p>Este es su número de orden, por favor, guardelo en un lugar seguro.</p>
+      <p className="fs-1 fw-bold">{orderId}</p>
+    </div>;
+  };
+
   return (
     <>
       {orderId ? (
@@ -62,19 +69,13 @@ function Cart() {
                             <div>
                               <p className="mb-1">Shopping cart</p>
                               <p className="mb-0">
-                                Tienes {totalItem} productos en tu carrito
+                                <b>
+                                  Tienes {totalItem} productos en tu carrito
+                                </b>
                               </p>
                             </div>
 
-                            <div>
-                              <p className="mb-0">
-                                <span className="text-muted">Sort by:</span>{" "}
-                                <a href="#!" className="text-body">
-                                  price{" "}
-                                  <i className="fas fa-angle-down mt-1"></i>
-                                </a>
-                              </p>
-                            </div>
+                            <div></div>
                           </div>
 
                           {item.map((el) => (
@@ -126,7 +127,10 @@ function Cart() {
                           ))}
                         </div>
                         <div className="col-lg-5">
-                          <div className="card bg-primary text-white rounded-3">
+                          <div
+                            className="card bg-dark text-white rounded-3"
+                            style={{ backgroundColor: "#c2000b" }}
+                          >
                             <div className="card-body">
                               <div className="d-flex justify-content-between align-items-center mb-4">
                                 <h5 className="mb-0">Datos del comprador</h5>
@@ -180,7 +184,7 @@ function Cart() {
 
                               <div className="d-flex justify-content-between">
                                 <p className="mb-2">Subtotal</p>
-                                <p className="mb-2">${totalPrecio}</p>
+                                <p className="mb-2">${totalPrecio.toFixed(2)}</p>
                               </div>
 
                               <div className="d-flex justify-content-between">
@@ -190,7 +194,7 @@ function Cart() {
 
                               <div className="d-flex justify-content-between mb-4">
                                 <p className="mb-2">Total - Incl. taxes</p>
-                                <p className="mb-2">${totalPrecio}</p>
+                                <p className="mb-2">${totalPrecio.toFixed(2)}</p>
                               </div>
 
                               <button
@@ -201,7 +205,7 @@ function Cart() {
                                 }
                               >
                                 <div className="d-flex justify-content-between">
-                                  <span>${totalPrecio}</span>
+                                  <span>${totalPrecio.toFixed(2)}</span>
                                   <span>
                                     {" "} Generar Orden
                                     <i className="fas fa-long-arrow-alt-right ms-2"></i>

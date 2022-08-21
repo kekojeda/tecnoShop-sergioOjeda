@@ -5,7 +5,10 @@ import { CarWidget } from "./CarWidget";
 function NavBar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        className="navbar navbar-expand-lg navbar-dark"
+        style={{ backgroundColor: "#c2000b" }}
+      >
         <div className="container-fluid">
           <Link to="/" className="navbar-brand" aria-current="page">
             TecnoShop

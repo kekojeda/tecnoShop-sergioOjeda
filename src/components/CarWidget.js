@@ -7,7 +7,10 @@ function CarWidget() {
 
   return (
     <>
-      <Link to="/cart" className="btn btn-outline-dark">
+      <Link
+        to="/cart"
+        className="mt-1 mx-2 btn btn-outline-light position-relative"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -24,9 +27,11 @@ function CarWidget() {
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
-
         {totalItem > 0 && (
-          <span className="badge badge-dark text-success">{totalItem}</span>
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+            {totalItem}
+            <span className="visually-hidden">Productos en el carrito</span>
+          </span>
         )}
       </Link>
     </>
