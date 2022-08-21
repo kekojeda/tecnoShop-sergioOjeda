@@ -10,7 +10,7 @@ function NavBar() {
         style={{ backgroundColor: "#c2000b" }}
       >
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand" aria-current="page">
+          <Link to="/tecnoShop-sergioOjeda" className="navbar-brand" aria-current="page">
             TecnoShop
           </Link>
 
@@ -28,7 +28,7 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <NavLink to="/" className="nav-link" aria-current="page">
+                <NavLink to="/tecnoShop-sergioOjeda" className="nav-link" aria-current="page">
                   Home
                 </NavLink>
               </li>
