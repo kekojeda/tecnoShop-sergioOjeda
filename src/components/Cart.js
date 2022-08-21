@@ -58,7 +58,7 @@ function Cart() {
                       <div className="row">
                         <div className="col-lg-7">
                           <h5 className="mb-3">
-                            <Link to="/" className="text-body">
+                            <Link to="/tecnoShop-sergioOjeda" className="text-body">
                               <i className="fas fa-long-arrow-alt-left me-2"></i>
                               Continuar comprando
                             </Link>
