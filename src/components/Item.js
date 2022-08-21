@@ -44,7 +44,7 @@ function Item({ id, title, description, price, image }) {
             <p className="card-text text-center fs-4">${price}</p>
 
             <Link
-              to={"/detalleProducto/" + id}
+              to={"/tecnoShop-sergioOjeda/detalleProducto/" + id}
               className="m-3 btn btn-outline-dark text-nowrap"
               aria-current="page"
               style={{ borderColor: "#c2000b", color: "#c2000b" }}

@@ -8,7 +8,7 @@ function CarWidget() {
   return (
     <>
       <Link
-        to="/cart"
+        to="/tecnoShop-sergioOjeda/cart"
         className="mt-1 mx-2 btn btn-outline-light position-relative"
       >
         <svg

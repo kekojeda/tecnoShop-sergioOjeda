@@ -40,7 +40,7 @@ function Cart() {
         <div className="alert alert-danger center" role="alert">
           Todavia no hay elementos en el carrito, por favor, primero agregue un
           producto
-          <Link to="/" className="btn btn-outline-primary btn-sm m-2">
+          <Link to="/tecnoShop-sergioOjeda" className="btn btn-outline-primary btn-sm m-2">
             Ver Listado de productos
           </Link>
         </div>

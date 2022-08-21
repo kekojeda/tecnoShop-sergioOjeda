@@ -16,17 +16,17 @@ function App() {
           <Routes>
             <Route path="/tecnoShop-sergioOjeda" element={<ItemListContainer />} />
             <Route
-              path="detalleProducto/:id"
+              path="tecnoShop-sergioOjeda/detalleProducto/:id"
               element={
                 <ItemDetailContainer greeting={"ItemDetailContainer "} />
               }
             />
             <Route
-              path="category/:categoryId"
+              path="tecnoShop-sergioOjeda/category/:categoryId"
               element={<ItemListContainer />}
             />
-            <Route path="cart" element={<Cart />} />
-            <Route path="track" element={<OrderTrack />} />
+            <Route path="tecnoShop-sergioOjeda/cart" element={<Cart />} />
+            <Route path="tecnoShop-sergioOjeda/track" element={<OrderTrack />} />
             <Route path="*" element={<h3>Esta ruta no existe</h3>} />
           </Routes>
         </BrowserRouter>

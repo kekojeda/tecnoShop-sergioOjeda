@@ -59,7 +59,7 @@ function ItemDetail({ item }) {
               ) : (
                 <div className="text-center">
                   <Link
-                    to="/cart"
+                    to="/tecnoShop-sergioOjeda/cart"
                     className="p-3 mt-2 btn btn-outline-dark btn-sm"
                     style={{ borderColor: "#c2000b", color: "#c2000b" }}
                   >

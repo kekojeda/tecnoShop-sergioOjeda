@@ -35,7 +35,7 @@ function NavBar() {
 
               <li className="nav-item">
                 <NavLink
-                  to="/category/mens-clothing"
+                  to="/tecnoShop-sergioOjeda/category/mens-clothing"
                   className="nav-link"
                   aria-current="page"
                 >
@@ -44,7 +44,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/category/jewelery"
+                  to="/tecnoShop-sergioOjeda/category/jewelery"
                   className="nav-link"
                   aria-current="page"
                 >
@@ -53,7 +53,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/category/electronics"
+                  to="/tecnoShop-sergioOjeda/category/electronics"
                   className="nav-link"
                   aria-current="page"
                 >
@@ -62,7 +62,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/category/womens-clothing"
+                  to="/tecnoShop-sergioOjeda/category/womens-clothing"
                   className="nav-link"
                   aria-current="page"
                 >
@@ -70,7 +70,7 @@ function NavBar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/track" className="nav-link" aria-current="page">
+                <NavLink to="/tecnoShop-sergioOjeda/track" className="nav-link" aria-current="page">
                   Segui tu orden
                 </NavLink>
               </li>
